@@ -1,4 +1,4 @@
-# Q2TwoArraysInto1
+# Q2DigitArraysIntoOne
 Fikra Camps Assignment
 hi fikracamps,
 started from the Q2 (print digit names array) of assigenment.
