@@ -1,0 +1,119 @@
+<html>
+</head>
+<body>
+<h2>JavaScript Combine 2 Arrays from Input Into One</h2>
+<form name="form1">
+        <table width="900">
+            <tr>
+                <td width="300" align="right"><b>First List length</b></td>
+                <td width="9"><b>&nbsp;:</b></td>
+                <td width="224">
+                <input type="integer" name="list1" id="List1g"/></td>
+                <td width="154" align="right"><b>Second list Length</b></td>
+                <td width="9"><b>&nbsp;:</b></td>
+                <td width="224">
+                <input type="integer" name="list2" id="List2g"/></td>
+            </tr>
+            <tr>
+                <td width="154" align="right"><b>Insert List 1 items</b></td>
+                <td width="9"><b>&nbsp;:</b></td>
+                <td width="224">
+                <input type="integer" name="List1item" id="L1item"/></td>
+                <td width="154" align="right"><b>Insert List 2 items</b></td>
+                <td width="9"><b>&nbsp;:</b></td>
+                <td width="224">
+                <input type="integer" name="List2item" id="L2item"/></td>                
+            </tr>
+
+
+        </table>
+        <table width="700">
+        <tr>
+        <td><td width="300" align="right"><input type="button" value="Add Into List1"
+                       onclick="insert(this.form.list1.value,this.form.List1item.value,1);"/>
+        </td>
+        <td><td width="300" align="right"><input type="button" value="Add Into List2"
+                       onclick="insert(this.form.list2.value,this.form.List2item.value,2);"/>
+        </td>
+</table>
+</table>
+        <table width="550">
+        <tr>
+        <td><td width="250" align="right"><input type="button" value="Combine the Two Lists"
+                       onclick="show();"/>
+        </td>
+        
+</table>
+</form>
+<p id="demo"></p>
+<script>
+    var arrayX,arrayY;
+    var array3=new Array();
+    var array1=new Array(arrayX);
+    var array2=new Array(arrayY);
+    var array1Index=0;
+    var array2Index=0;
+    var string;
+    
+
+    function insert(val1, val2, val3){
+    switch(val3){
+        case 1:
+    	arrayX = val1; 
+               if ( array1Index  >= arrayX ){
+       alert("End of array1!");
+       array1Index=0;
+       document.getElementById('List1g').value = '';
+       document.getElementById('L1item').value = '';
+       return false;
+    }
+       else {
+        array1[array1Index] = val2;
+        document.getElementById('L1item').value = '';
+                       array1Index++;
+    }
+        break;
+    case 2:
+        arrayY = val1; 
+               if ( array2Index  >= arrayY ){
+       alert("End of array2!");
+       array2Index=0;
+       document.getElementById('List2g').value = '';
+       document.getElementById('L2item').value = '';
+       return false;
+    }
+       else {
+        array2[array2Index] = val2;
+        document.getElementById('L2item').value = '';
+                  array2Index++;
+    }
+    break;
+}
+    }
+
+
+    function show(){
+    	 
+    	 string ="["+array1+"]"+","+"["+array2+"]"+">>>>>>>>>"+"["+ Array2in1() +"]"; 
+         document.getElementById("demo").innerHTML = string;
+ 
+}
+
+function Array2in1(){
+var c1=0,c2=0;
+    while ( c1<arrayX || c2<arrayY){
+        
+        if  (c1 < arrayX){
+            array3.push(array1[c1]);
+            c1++;}
+        if (c2<arrayY){
+            array3.push(array2[c2]);
+            c2++;}     
+    }
+    
+    return (array3);    
+}
+
+</script>
+</body>
+</html>
